@@ -14,7 +14,7 @@ const MainPage = () => {
             <Header />
             <Routes>
                 <Route index element={ <MangoListPage />}/>
-                <Route path='/detail' element={ <MangoDetailPage />}/>
+                <Route path='/detail/:id' element={ <MangoDetailPage />}/>
             </Routes>
             <Footer />
         </ThemeProvider>

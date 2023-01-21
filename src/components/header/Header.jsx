@@ -7,7 +7,7 @@ const Header = () => {
 
   return (
     <div className="bg-[#F3F3F3] shadow-[0_4px_30px_rgba(0, 0, 0, 0.15)]">
-      <Container>
+      <Container maxWidth={false} className="p-0 w-[1240px]">
         <nav className='flex justify-between h-[110px] items-center' >
           <Logo />
           <TextField placeholder='Placeholder' color='primary' className="w-[342px] h-[56px] focus:border-[5px]" />

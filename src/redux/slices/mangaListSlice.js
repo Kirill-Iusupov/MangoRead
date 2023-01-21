@@ -11,7 +11,7 @@ export const getMangaList = createAsyncThunk(
     'mangaList/getMangaList',
     async function() {
 
-        const response = await axios.get('http://134.122.75.14:8666/api/v1/top-manga/')
+        const response = await axios.get('http://134.122.75.14:8666/api/v1/manga/?limit=12')
         
         const data = response.data
 
@@ -31,8 +31,6 @@ const mangaListSlice = createSlice({
             state.isLoading = !state.isLoading
             state.mangaList = action.payload.results
         })
-
-        
     )
     }
 
