@@ -14,7 +14,6 @@ const MangoDetailPage = () => {
   const {mangaInfo} = useSelector(state => state.mangaDetailReducer)
   const {genres} = useSelector(state => state.genresReducer)
 
-  console.log(genres)
   useEffect(()=>{
     dispatch(fetchMangaDetail(id))
     dispatch(fetchGenres())
@@ -23,19 +22,32 @@ const MangoDetailPage = () => {
   const descrip = () =>{
     return {__html:mangaInfo.description}
   }
+  console.log("genres => ", genres)
+  console.log("mangaInfo => ", mangaInfo)
+
 
   return (
     <Container className="w-[1240px] px-0" maxWidth={false}>
-      <div>
-        <span className='block w-[328px] h-[328ox] rounded-[16px]'></span>
-        <h2>{mangaInfo.ru_name}</h2>
-        <p>Информация:</p>
-        <p>Тип: {mangaInfo.type}</p>
-        <p>Год: {mangaInfo.year}</p>
-        <p>Жанр: </p>
+      <p className="cursor-pointer my-[32px] text-[24px] leading-[29px] text-normal text-[#878787]">{'\u2190'} Назад</p>
+      <div className='flex'>
+        <span style ={ {backgroundImage: `url(${mangaInfo.image})`} } 
+              className='block w-[328px] h-[328px] mr-[41px] rounded-[16px] bg-cover bg-no-repeat'></span>
+        <div className="flex flex-col justify-around">
+          <h2 className='text-[40px] leading-[49px] font-medium'>{mangaInfo.ru_name}</h2>
+          <h2 className='text-[30px] leading-[37px] font-normal'>Информация:</h2>
+          <p className='text-[24px] leading-[35px] font-medium text-[#878787]'><b className='text-black'>Тип:</b> {mangaInfo.type}</p>
+          <p className='text-[24px] leading-[35px] font-medium text-[#878787]'><b className='text-black'>Год:</b> {mangaInfo.issue_year}</p>
+          <p className='text-[24px] leading-[35px] font-medium text-[#878787]'><b className='text-black'>Жанр:</b> </p>  
+        </div> 
       </div>
-      <div dangerouslySetInnerHTML={descrip()}/> 
-      <div></div>
+      <div className='w-[100%] border-[2px] border-[#CECECE] my-[32px]' />
+      <p className='text-[35px] leading-[43px] font-medium mb-[10px]'>Синопсис</p>
+      <div dangerouslySetInnerHTML={descrip()} className="text-[24px] leading-[140%] font-normal text-[#616161]"/> 
+      <div className='w-[100%] border-[2px] border-[#CECECE] my-[32px]' />
+      <div>
+        <p className='text-[35px] leading-[43px] font-medium mb-[10px]'>Топ рецензий</p>
+
+      </div>
     </Container>
   )
 }
