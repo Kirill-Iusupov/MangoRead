@@ -1,12 +1,12 @@
 import React from 'react';
-import Login from './components/login/Login';
-import MainPage from './pages/mainPage/MainPage';
+import Form from './components/form/Form';
+// import MainPage from './pages/mainPage/MainPage';
 
 function App() {
   return (
     <>
-      <MainPage />
-      {/* <Login /> */}
+      <Form />
+      {/* <MainPage /> */}
     </>
   );
 }

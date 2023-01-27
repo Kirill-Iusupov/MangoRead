@@ -7,6 +7,6 @@ export const store = configureStore({
     reducer:{
         mangaListReducer,
         genresReducer,
-        mangaDetailReducer
+        mangaDetailReducer,
     }
 })
