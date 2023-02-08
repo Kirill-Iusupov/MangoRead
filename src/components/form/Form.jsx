@@ -9,7 +9,7 @@ const Form = ( {act} ) => {
   const [nickname, setNickname] = useState('')
   const [file, setFile] = useState(null)
   
-
+  
   //Общие стили для схожих элементов в окнах
   const style="border-[1px] border-solid border-black p-[10px] rounded-[8px] mb-[30px]"
   const winFormStyle = "m-auto leading-[35px] text-[24px]"
@@ -26,23 +26,41 @@ const Form = ( {act} ) => {
 
   const handleChange = (e) => {
     setFile(e.target.files[0])
+    
   }
 
-  const regUser = async () =>{
-    const formData = new FormData();
-    formData.append("username", username)
-    formData.append("username", nickname)
-    formData.append("password", password)
-    formData.append("image_file", file)
+  const regUser = () =>{
+    // const formData = new FormData();
+    // formData.append("username", username)
+    // formData.append("nickname", nickname)
+    // formData.append("password", password)
+    // formData.append("image_file", file)
 
-    const response = await fetch('http://134.122.75.14:8666/swagger/api/auth/signup/', {
-      method: 'POST',
-      body: formData
-    })
-    const data = await response.json()
+    const obj = {
+      "username": username,
+      "nickname": nickname,
+      "password": password
+    }
+
+    let xhr = new XMLHttpRequest()
+    xhr.open('POST', 'http://134.122.75.14:8666/swagger/api/auth/signup/', [])
+  
+    xhr.send([obj])
+
+    xhr.onload = function() {
+      alert(`Загружено: ${xhr.status} ${xhr.response}`);
+    };
+
+    console.log(file) 
+
+    // const response = await fetch('http://134.122.75.14:8666/swagger/api/auth/signup/', {
+    //   method: 'POST',
+    //   body: formData
+    // })
+    // const data = await response.json()
 
 
-    console.log(data)
+    // console.log(data)
   }
  
 
@@ -72,7 +90,7 @@ const Form = ( {act} ) => {
                   type="file"
                   ref={fileRef}
                   onChange={handleChange} 
-                  accept='image/*, .png,.svg,.jpg,.web'/>
+                  accept='image/*, .png,.svg,.jpg,.jpeg'/>
             <input type="text" 
                   value={username} 
                   onChange = {e=> setUsername(e.target.value)} 

@@ -1,12 +1,12 @@
 import React from 'react';
-import Form from './components/form/Form';
 // import MainPage from './pages/mainPage/MainPage';
+import Form from "./components/form/Form"
 
 function App() {
   return (
     <>
-      <Form />
       {/* <MainPage /> */}
+      <Form act="Регистрация" />
     </>
   );
 }
