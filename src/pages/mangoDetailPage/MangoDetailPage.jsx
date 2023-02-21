@@ -30,8 +30,8 @@ const MangoDetailPage = () => {
     <Container className="w-[1240px] px-0" maxWidth={false}>
       <p className="cursor-pointer my-[32px] text-[24px] leading-[29px] text-normal text-[#878787]">{'\u2190'} Назад</p>
       <div className='flex'>
-        <span style ={ {backgroundImage: `url(${mangaInfo.image})`} } 
-              className='block w-[328px] h-[328px] mr-[41px] rounded-[16px] bg-cover bg-no-repeat'></span>
+        <span style ={ {backgroundImage: `url(${mangaInfo.image})`, backgroundSize: "100% 100%"} } 
+              className='block w-[328px] h-[328px] mr-[41px] rounded-[16px]'></span>
         <div className="flex flex-col justify-around">
           <h2 className='text-[40px] leading-[49px] font-medium'>{mangaInfo.ru_name}</h2>
           <h2 className='text-[30px] leading-[37px] font-normal'>Информация:</h2>

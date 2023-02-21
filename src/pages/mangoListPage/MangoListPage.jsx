@@ -20,7 +20,7 @@ const MangoListPage = () => {
   }, [dispatch])
 
   return (
-    <div className='bg-[gray]'>
+    <div className='bg-slate-900'>
         <Container className="flex w-[1240px] px-0 pt-[32px]" maxWidth={false}>
           <FilterModal />
           {isLoading ? <h2>Loading...</h2> : <div className="flex flex-wrap content-between justify-between">
